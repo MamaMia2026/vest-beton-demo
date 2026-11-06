@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Vest Beton · Stație de betoane Timișoara (machetă demo)</title>
+<meta name="description" content="Machetă demo: calculator de beton, rețete și prețuri orientative, pompare și livrare în județul Timiș.">
+<meta name="theme-color" content="#0F1B33">
+<link rel="preload" href="fonts/space-grotesk-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/space-grotesk-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/space-grotesk-700-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Crect x='1' y='1' width='32' height='32' rx='8' fill='%231E47D6'/%3E%3Cpath d='M8 24 17 9l9 15Z' fill='none' stroke='%23fff' stroke-width='2.5'/%3E%3C/svg%3E">
+<script src="js/calculator.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#calculator">Sari la calculator</a>
+<div class="demo-bar" role="note">Machetă demo – prețuri și date de exemplu</div>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect x="1" y="1" width="32" height="32" rx="8" fill="#1E47D6"/><path d="M8 24 17 9l9 15Z" fill="none" stroke="#fff" stroke-width="2.5"/></svg>
+      <span><span class="brand-n">Vest Beton</span><span class="brand-s mono">beton marfă · Timiș</span></span>
+    </a>
+    <nav class="nav" aria-label="Meniu principal">
+      <a href="#calculator" class="on">Calculator</a>
+      <a href="#retete">Rețete</a>
+      <a href="#servicii">Pompare</a>
+      <a href="#comanda">Livrare</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-blue btn-sm" href="#calculator">Cere ofertă</a>
+  </div>
+</header>
+
+<main>
+<section class="wrap hero">
+  <div class="hero-txt">
+    <span class="cap">Stație de betoane · Timișoara</span>
+    <h1 class="h">Măsori.<br>Calculăm.<br><span class="blue">Turnăm.</span></h1>
+    <p class="lead">Introdu dimensiunile lucrării și afli pe loc câți metri cubi îți trebuie, câte autobetoniere vin și cât costă livrarea până la tine.</p>
+    <div class="hero-btns">
+      <a class="btn btn-dark" href="#calculator" id="openCalc">Deschide calculatorul</a>
+      <a class="btn btn-line" href="#retete">Vezi rețetele</a>
+    </div>
+    <ul class="checks mono">
+      <li>✓ Certificat la fiecare livrare</li>
+      <li>✓ Laborator propriu</li>
+      <li>✓ Program L–S</li>
+    </ul>
+  </div>
+  <figure class="hero-fig">
+    <svg viewBox="0 0 470 300" role="img" aria-labelledby="isoTitle" id="iso">
+      <title id="isoTitle">Desen izometric al plăcii: L = 10,00 m, l = 8,00 m, h = 15 cm, volum 12,60 m³</title>
+      <path id="isoTop" d="M40 170 210 85l170 85-170 85Z" fill="#fff" stroke="#1E47D6" stroke-width="2"/>
+      <path id="isoLeft" d="M40 170v30l170 85v-30Z" fill="#E3EAFF" stroke="#1E47D6" stroke-width="2"/>
+      <path id="isoRight" d="M210 285v-30l170-85v30Z" fill="#CBD7FF" stroke="#1E47D6" stroke-width="2"/>
+      <path id="isoDash" d="M40 160 210 75M210 75l170 85" stroke="#1E47D6" stroke-width="1" stroke-dasharray="4 4" fill="none"/>
+      <g font-family="DM Mono, monospace" font-size="14" fill="#1E47D6">
+        <text id="isoL" x="100" y="105" transform="rotate(-27 100 105)">L = 10,00 m</text>
+        <text id="isoW" x="280" y="98" transform="rotate(27 280 98)">l = 8,00 m</text>
+        <text id="isoH" x="392" y="190">h = 15 cm</text>
+      </g>
+      <g id="isoRes" font-family="DM Mono, monospace" font-size="13">
+        <rect id="isoResBox" x="150" y="151" width="120" height="38" rx="8" fill="#0F1B33"/>
+        <text id="isoV" x="210" y="175" fill="#fff" text-anchor="middle">= 12,60 m³</text>
+      </g>
+    </svg>
+    <figcaption class="sr-only" aria-live="polite" id="isoLive"></figcaption>
+  </figure>
+</section>
+
+<section class="wrap sec" id="calculator" aria-labelledby="calcH">
+  <div class="sec-head">
+    <div><span class="cap">01 · Calculator</span><h2 class="h h2" id="calcH">Calculator de beton</h2></div>
+    <span class="mono sec-tags">volum · autobetoniere · transport · pompă</span>
+  </div>
+
+  <div class="calc">
+    <form class="c-in" id="calcForm" novalidate onsubmit="return false">
+      <fieldset class="c-set">
+        <legend class="c-step"><span class="c-n" aria-hidden="true">1</span><span class="c-t">Ce torni?</span></legend>
+        <div class="c-shapes" id="shapes">
+          <button type="button" data-s="placa" aria-pressed="true"><svg viewBox="0 0 48 32" aria-hidden="true"><path d="M4 20 24 10l20 10-20 10Z"/><path d="M4 20v4l20 10 20-10v-4"/></svg>Placă / radier</button>
+          <button type="button" data-s="fund" aria-pressed="false"><svg viewBox="0 0 48 32" aria-hidden="true"><path d="M6 8h36v18H6Z M12 14h24v6H12Z" fill-rule="evenodd"/></svg>Fundație continuă</button>
+          <button type="button" data-s="stalp" aria-pressed="false"><svg viewBox="0 0 48 32" aria-hidden="true"><ellipse cx="24" cy="6" rx="7" ry="3"/><path d="M17 6v20c0 2 14 2 14 0V6"/></svg>Stâlpi rotunzi</button>
+          <button type="button" data-s="grinda" aria-pressed="false"><svg viewBox="0 0 48 32" aria-hidden="true"><path d="M4 12h40v8H4Z"/><path d="M4 12l6-6h40l-6 6"/></svg>Grinzi / stâlpi pătrați</button>
+          <button type="button" data-s="sapa" aria-pressed="false"><svg viewBox="0 0 48 32" aria-hidden="true"><path d="M2 24h44v4H2Z"/><path d="M6 20h36" stroke-dasharray="3 3"/></svg>Șapă</button>
+          <button type="button" data-s="m3" aria-pressed="false"><svg viewBox="0 0 48 32" aria-hidden="true"><path d="M14 8h20v20H14Z M14 8l6-5h20l-6 5 M34 28l6-5V3"/></svg>Știu cantitatea</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="c-set">
+        <legend class="c-step"><span class="c-n" aria-hidden="true">2</span><span class="c-t">Dimensiuni</span></legend>
+        <div class="c-fields" id="fields"></div>
+      </fieldset>
+
+      <fieldset class="c-set">
+        <legend class="c-step"><span class="c-n" aria-hidden="true">3</span><span class="c-t">Clasa betonului</span></legend>
+        <label class="sr-only" for="clasa">Clasa betonului</label>
+        <select id="clasa" class="c-sel" aria-describedby="clasaHint"></select>
+        <p class="c-hint" id="clasaHint"></p>
+      </fieldset>
+
+      <fieldset class="c-set">
+        <legend class="c-step"><span class="c-n" aria-hidden="true">4</span><span class="c-t">Unde livrăm?</span></legend>
+        <div class="c-row">
+          <label class="c-f"><span class="sr-only">Localitate</span><select id="loc" class="c-sel"></select></label>
+          <label class="c-f c-km"><span>sau km de Timișoara</span><input id="km" type="number" min="0" step="1" inputmode="numeric" value="8"></label>
+        </div>
+        <div class="c-opts">
+          <label class="c-chk"><input type="checkbox" id="pompa"> Pompă de beton (braț 36 m)</label>
+          <label class="c-chk"><input type="checkbox" id="pierderi" checked> +5% rezervă pentru pierderi</label>
+        </div>
+      </fieldset>
+    </form>
+
+    <div class="c-out" aria-labelledby="outLbl">
+      <span class="c-lbl" id="outLbl">Necesar estimat</span>
+      <div class="c-vol" aria-live="polite" aria-atomic="true"><b id="vol">0,00</b><span>m³</span></div>
+      <div class="c-trucks" id="trucks"></div>
+      <div class="c-lines">
+        <div><span>Beton <i id="lClasa"></i></span><b id="pBeton">0 lei</b></div>
+        <div><span>Transport <i id="lTransp"></i></span><b id="pTransp">0 lei</b></div>
+        <div id="rPompa" hidden><span>Pompă <i id="lPompa"></i></span><b id="pPompa">0 lei</b></div>
+        <div id="rTaxa" class="c-taxa" hidden><span>Taxă cursă incompletă <i id="lTaxa"></i></span><b id="pTaxa">0 lei</b></div>
+        <div class="c-tot"><span>Total estimat <i>(fără TVA)</i></span><b id="pTot" aria-live="polite">0 lei</b></div>
+      </div>
+      <button type="button" class="c-cta" id="cta" aria-haspopup="dialog">Cere ofertă fermă →</button>
+      <p class="c-note">Prețuri de exemplu (demo). Oferta finală se confirmă telefonic, în funcție de acces, program și cantitate.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec" id="retete" aria-labelledby="retH">
+  <span class="cap">02 · Rețete</span>
+  <h2 class="h h2b" id="retH">Clase și prețuri orientative</h2>
+  <div class="tbl-box">
+    <table class="tbl">
+      <thead class="mono"><tr><th scope="col">Clasă</th><th scope="col" class="opt">Expunere</th><th scope="col" class="opt">Consistență</th><th scope="col" class="opt">Utilizare</th><th scope="col" class="r">Preț</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">C8/10</th><td class="mono opt">X0</td><td class="mono opt">S3</td><td class="opt">Beton de egalizare</td><td class="mono r">310 lei/m³</td></tr>
+        <tr><th scope="row">C16/20</th><td class="mono opt">XC1</td><td class="mono opt">S3</td><td class="opt">Fundații, plăci pe sol</td><td class="mono r">360 lei/m³</td></tr>
+        <tr><th scope="row">C20/25</th><td class="mono opt">XC2</td><td class="mono opt">S3–S4</td><td class="opt">Fundații, plăci, stâlpi</td><td class="mono r">385 lei/m³</td></tr>
+        <tr><th scope="row">C25/30</th><td class="mono opt">XC3</td><td class="mono opt">S4</td><td class="opt">Planșee, grinzi</td><td class="mono r">410 lei/m³</td></tr>
+        <tr><th scope="row">C30/37</th><td class="mono opt">XC4</td><td class="mono opt">S4</td><td class="opt">Platforme industriale</td><td class="mono r">445 lei/m³</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="wrap sec" id="servicii" aria-labelledby="servH">
+  <span class="cap" id="servH">03 · Servicii</span>
+  <div class="cards">
+    <article class="card"><span class="mono blue">01</span><h3>Beton marfă</h3><p>Toate clasele, de la C8/10 la C35/45, cu certificat de calitate la fiecare livrare.</p></article>
+    <article class="card"><span class="mono blue">02</span><h3>Pompare beton</h3><p>Pompe cu braț de 24–42 m, pentru planșee și locuri greu accesibile.</p></article>
+    <article class="card"><span class="mono blue">03</span><h3>Transport</h3><p>Autobetoniere de 8 m³, livrare în Timișoara și în tot județul.</p></article>
+    <article class="card"><span class="mono blue">04</span><h3>Laborator propriu</h3><p>Rețete controlate, probe și buletine de încercare pentru fiecare lot.</p></article>
+  </div>
+  <img class="photo" src="img/pompa-turnare-800.webp"
+       srcset="img/pompa-turnare-480.webp 480w, img/pompa-turnare-800.webp 800w, img/pompa-turnare.webp 1200w"
+       sizes="(max-width: 700px) calc(100vw - 32px), (max-width: 1440px) calc(100vw - 128px), 1312px"
+       width="1200" height="896" loading="lazy" decoding="async"
+       alt="Turnare de beton cu pompă pe un șantier de fundații; muncitori în echipament de protecție dirijează furtunul pompei">
+</section>
+
+<section class="wrap sec" id="comanda" aria-labelledby="comH">
+  <span class="cap" id="comH">04 · Comandă</span>
+  <ol class="steps">
+    <li><span class="st-n mono on">1</span><b>Calculezi</b><span>volumul și clasa în calculator</span></li>
+    <li><span class="st-n mono">2</span><b>Confirmăm</b><span>telefonic, în 15 minute</span></li>
+    <li><span class="st-n mono">3</span><b>Programăm</b><span>ziua și ora turnării</span></li>
+    <li><span class="st-n mono">4</span><b>Turnăm</b><span>cu autobetoniere și pompă</span></li>
+  </ol>
+</section>
+</main>
+
+<footer class="foot" id="contact">
+  <div class="wrap foot-in">
+    <b class="foot-n">Vest Beton</b>
+    <span class="dim">Str. Exemplului 12, Timișoara · 0256 000 000 · L–S 06–20</span>
+    <span class="foot-r"><span class="dim">Machetă demo · Site realizat de <b class="lb">CristianWeb</b></span>
+      <a class="foot-cta" href="https://cristianweb.ro">Vreau un site ca acesta →</a></span>
+  </div>
+</footer>
+
+<dialog class="dlg" id="dlg" aria-labelledby="dlgH" aria-describedby="dlgSum">
+  <form method="dialog" id="dlgForm" novalidate>
+    <div class="dlg-head">
+      <h2 id="dlgH">Cere ofertă fermă</h2>
+      <button type="button" class="dlg-x" id="dlgClose" aria-label="Închide">×</button>
+    </div>
+    <p class="dlg-sum mono" id="dlgSum"></p>
+    <label class="d-f"><span>Nume</span><input name="nume" id="fNume" autocomplete="name" required aria-describedby="eNume"><small class="err" id="eNume"></small></label>
+    <label class="d-f"><span>Telefon</span><input name="tel" id="fTel" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="eTel"><small class="err" id="eTel"></small></label>
+    <label class="d-f"><span>Adresa șantierului</span><input name="adresa" id="fAdr" autocomplete="street-address" required aria-describedby="eAdr"><small class="err" id="eAdr"></small></label>
+    <label class="d-f"><span>Data turnării</span><input name="data" id="fData" type="date" required aria-describedby="eData"><small class="err" id="eData"></small></label>
+    <button type="submit" class="c-cta" id="dlgSend">Trimite pe WhatsApp →</button>
+    <p class="c-hint">Se deschide WhatsApp cu mesajul completat. Nu trimitem nimic fără confirmarea ta.</p>
+  </form>
+</dialog>
+</body>
+</html>
